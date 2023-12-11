@@ -6,13 +6,13 @@ import { useGetUsersList } from '@/http/query';
 
 // components
 import TableBody from './components/TableBody';
+import AddUserModal from './components/AddUserModal';
 import TableComponent from '@/components/tables';
 import { AddRounded } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 
 // types
-import { TableHeadPropsType } from '@/types/public';
-import AddUserModal from './components/AddUserModal';
+import type { TableHeadPropsType } from '@/types/public';
 
 export interface UsersItemsType {
     id: number,
@@ -97,8 +97,7 @@ const Users = () => {
                     </TableComponent>
                 }
             </div>
-            {openAddUserModal && 
-            <AddUserModal openModal={openAddUserModal} setOpenModal={setOpenAddUserModal} />}
+            {openAddUserModal && <AddUserModal openModal={openAddUserModal} setOpenModal={setOpenAddUserModal} />}
         </>
     );
 };

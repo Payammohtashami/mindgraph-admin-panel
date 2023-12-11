@@ -1,10 +1,9 @@
 import React from 'react';
+import Companies from '@/containers/Companies';
 
 const page = () => {
     return (
-        <div>
-            <h1 className='text-4xl dark:text-white'>Companies</h1>
-        </div>
+        <Companies />
     );
 };
 

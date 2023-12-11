@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 // components
-import { TableCell, TableBody as MuiTableBody } from '@mui/material';
 import { DeleteRounded, EditRounded } from '@mui/icons-material';
+import { TableCell, TableBody as MuiTableBody } from '@mui/material';
 
 // modals
 import DeleteModal from './DeleteModal';

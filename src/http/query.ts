@@ -11,3 +11,25 @@ export const useGetUsersList = () => {
         }),
     );
 };
+
+export const useGetCompaniesList = () => {
+    return useQuery(
+      ["get-companies-list"],
+      () =>
+        ApiCall({
+            method: 'get',
+            path: '/companies',
+        }),
+    );
+};
+
+export const useGetLicensesList = () => {
+    return useQuery(
+      ["get-licenses-list"],
+      () =>
+        ApiCall({
+            method: 'get',
+            path: '/licenses',
+        }),
+    );
+};

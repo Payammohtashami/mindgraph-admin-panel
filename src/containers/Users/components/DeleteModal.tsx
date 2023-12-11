@@ -1,8 +1,11 @@
-import React from 'react';
+import React, { memo } from 'react';
+
+// components
 import Modal from '@/components/modal';
 import { DeleteRounded } from '@mui/icons-material';
-import { ModalPropsType } from '@/types/public';
 
+// types
+import type { ModalPropsType } from '@/types/public';
 
 
 const DeleteModal: React.FC<ModalPropsType> = ({openModal, setOpenModal}) => {
@@ -26,4 +29,4 @@ const DeleteModal: React.FC<ModalPropsType> = ({openModal, setOpenModal}) => {
     );
 };
 
-export default DeleteModal;
+export default memo(DeleteModal);
