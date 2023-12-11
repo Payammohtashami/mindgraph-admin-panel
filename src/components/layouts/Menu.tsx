@@ -30,9 +30,7 @@ const Menu: React.FC = () => {
                 {profilesTabs?.map((item) => (
                     <div key={item?.id} className={pathname === item?.url ? 'bg-gray-100 rounded-2xl dark:bg-gray-800 mb-1' : 'rounded-2xl hover:bg-gray-100 hover:dark:bg-gray-800 mb-1'}>
                         <Link href={item?.url}>
-                            <button
-                                className='rounded-2xl text-sm transition-all hover:text-primary-500 w-full flex items-center gap-2 justify-start text-slate-700 dark:text-slate-100 py-3 px-4 font-medium'
-                            >
+                            <button className='pr-12 lg:pr-4 rounded-2xl text-sm transition-all hover:text-primary-500 w-full flex items-center gap-2 justify-start text-slate-700 dark:text-slate-100 py-3 px-4 font-medium'>
                                 {item.Icon}
                                 {item?.title}
                             </button>

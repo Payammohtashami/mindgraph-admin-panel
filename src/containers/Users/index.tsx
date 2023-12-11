@@ -1,12 +1,18 @@
 "use client"
 import React, { useState } from 'react';
+
+// hooks
 import { useGetUsersList } from '@/http/query';
+
+// components
+import TableBody from './components/TableBody';
 import TableComponent from '@/components/tables';
-import { TableHeadPropsType } from '@/types/public';
-import TableBody from './TableBody';
 import { AddRounded } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 
+// types
+import { TableHeadPropsType } from '@/types/public';
+import AddUserModal from './components/AddUserModal';
 
 export interface UsersItemsType {
     id: number,
@@ -16,47 +22,56 @@ export interface UsersItemsType {
     name: string,
 };
 
+
+const tableHead: TableHeadPropsType[] = [
+    {
+        id: 1,
+        label: 'Id',
+        align: 'left',
+    },
+    {
+        id: 2,
+        label: 'Name',
+        align: 'left',
+    },
+    {
+        id: 3,
+        label: 'Email',
+        align: 'left',
+    },
+    {
+        id: 4,
+        label: 'Company ID',
+        align: 'left',
+    },
+    {
+        id: 5,
+        label: 'Access Group',
+        align: 'left',
+    },
+    {
+        id: 6,
+        label: '',
+        align: 'right',
+    },
+];
+
 const Users = () => {
-    const { data, isLoading } = useGetUsersList();
+    // states
     const [page, setPage] = useState<number>(1)
     const [rowsPerPage, setRowsPerPage] = useState<number>(5)
-    const tableHead: TableHeadPropsType[] = [
-        {
-            id: 1,
-            label: 'Id',
-            align: 'left',
-        },
-        {
-            id: 2,
-            label: 'Name',
-            align: 'left',
-        },
-        {
-            id: 3,
-            label: 'Email',
-            align: 'left',
-        },
-        {
-            id: 4,
-            label: 'Company ID',
-            align: 'left',
-        },
-        {
-            id: 5,
-            label: 'Access Group',
-            align: 'left',
-        },
-        {
-            id: 6,
-            label: '',
-            align: 'right',
-        },
-    ];
+    const [openAddUserModal, setOpenAddUserModal] = useState<boolean>(false);
+
+    // hooks
+    const { data, isLoading } = useGetUsersList();
     return (
         <>
             <div className="flex justify-between mb-6 items-center">
                 <h1 className='text-3xl dark:text-white font-bold'>Users List</h1>
-                <button className='text-white bg-primary-400 px-4 py-2 rounded-xl flex justify-center items-center transition-all text-sm font-medium hover:ring-8 opacity-100 cursor-pointer'>
+                <button
+                    onClick={() => setOpenAddUserModal(true)}
+                    className='text-white bg-primary-400 px-4 py-2 rounded-xl flex justify-center items-center transition-all text-sm font-medium hover:ring-8 opacity-100 cursor-pointer'
+                >
                     <AddRounded />
                     Add User
                 </button>
@@ -82,6 +97,8 @@ const Users = () => {
                     </TableComponent>
                 }
             </div>
+            {openAddUserModal && 
+            <AddUserModal openModal={openAddUserModal} setOpenModal={setOpenAddUserModal} />}
         </>
     );
 };

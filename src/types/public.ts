@@ -28,3 +28,8 @@ export interface TableHeadPropsType {
     align: 'right' | 'left',
     label: string
 };
+
+export interface ModalPropsType {
+    openModal: boolean, 
+    setOpenModal: React.Dispatch<React.SetStateAction<boolean>>
+}
