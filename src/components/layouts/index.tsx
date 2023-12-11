@@ -43,7 +43,7 @@ const DashboardLayout: React.FC<LayoutProps> = ({children}) => {
                     {children}
                 </main>
             </div>
-            {isMobile ? 
+            {isMobile && openMenu ? 
                 <Drawer
                     anchor='left'
                     open={openMenu}

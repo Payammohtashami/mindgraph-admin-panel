@@ -1,11 +1,14 @@
+import Users from '@/containers/Users';
+import { useGetUsersList } from '@/http/query';
 import React from 'react';
 
-const page = () => {
+const Page = () => {
+    
     return (
-        <div>
-            <h1 className='text-4xl dark:text-white'>Users</h1>
-        </div>
+        <>
+            <Users />
+        </>
     );
 };
 
-export default page;
+export default Page;

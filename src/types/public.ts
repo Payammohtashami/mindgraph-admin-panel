@@ -20,4 +20,11 @@ export interface UserStateType {
     },
     status?: string,
     isFetching?: boolean,
-}
+};
+
+
+export interface TableHeadPropsType {
+    id: number | string,
+    align: 'right' | 'left',
+    label: string
+};

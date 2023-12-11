@@ -1,0 +1,40 @@
+{
+  "users": [
+    { "id": 1, "name": "John Doe", "email": "john@example.com", "companyId": 1, "accessGroup": "admin" },
+    { "id": 2, "name": "Jane Doe", "email": "jane@example.com", "companyId": 2 , "accessGroup": "admin"},
+    { "id": 3, "name": "Bob Smith", "email": "bob@example.com", "companyId": 1 , "accessGroup": "marketing"},
+    { "id": 4, "name": "Zwag Miller", "email": "zwag@example.com", "companyId": 3 , "accessGroup": "admin"},
+    { "id": 5, "name": "gilbert Bond", "email": "gilbert@example.com", "companyId": 4 , "accessGroup": "admin"}
+  ],
+  "companies": [
+    { "id": 1, "name": "Acme Inc" },
+    { "id": 2, "name": "Tech Co" },
+    { "id": 3, "name": "Snail Guardian LLC" },
+    { "id": 4, "name": "FF Squad Corp" }
+  ],
+  "licenses": [
+    { "id": 1, "name": "Standard License", "companyId": 1 , "status": "used"},
+    { "id": 2, "name": "Pro License", "companyId": 2 , "status": "used"},
+    { "id": 3, "name": "Enterprise License", "companyId": 3 , "status": "available"},
+    { "id": 4, "name": "Standard License", "companyId": 4 , "status": "used"},
+    { "id": 5, "name": "Standard License", "companyId": 1 , "status": "available"},
+    { "id": 6, "name": "Pro License", "companyId": 2 , "status": "available"},
+    { "id": 7, "name": "Enterprise License", "companyId": 3 , "status": "used"},
+    { "id": 8, "name": "Standard License", "companyId": 4 , "status": "available"},
+    { "id": 9, "name": "Standard License", "companyId": 1 , "status": "used"},
+    { "id": 10, "name": "Pro License", "companyId": 2 , "status": "used"},
+    { "id": 11, "name": "Enterprise License", "companyId": 3 , "status": "available"},
+    { "id": 12, "name": "Standard License", "companyId": 4 , "status": "used"},
+    { "id": 13, "name": "Standard License", "companyId": 1 , "status": "available"},
+    { "id": 14, "name": "Pro License", "companyId": 2 , "status": "available"},
+    { "id": 15, "name": "Enterprise License", "companyId": 3 , "status": "used"},
+    { "id": 16, "name": "Standard License", "companyId": 4 , "status": "available"},
+    { "id": 17, "name": "Standard License", "companyId": 1 , "status": "used"},
+    { "id": 18, "name": "Pro License", "companyId": 2 , "status": "used"},
+    { "id": 19, "name": "Enterprise License", "companyId": 3 , "status": "available"},
+    { "id": 20, "name": "Standard License", "companyId": 4 , "status": "used"},
+    { "id": 21, "name": "Standard License", "companyId": 1 , "status": "available"},
+    { "id": 22, "name": "Pro License", "companyId": 2 , "status": "available"},
+    { "id": 23, "name": "Enterprise License", "companyId": 3 , "status": "used"}
+  ]
+}
