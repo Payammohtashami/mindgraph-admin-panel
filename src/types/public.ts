@@ -13,11 +13,11 @@ export interface MenuTabsPropsType {
 
 
 export interface UserStateType {
-    data: {
+    data?: {
         last_name: string,
         first_name: string,
         mobile: string,
     },
-    status: string,
-    isFetching: boolean,
+    status?: string,
+    isFetching?: boolean,
 }

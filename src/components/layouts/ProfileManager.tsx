@@ -21,14 +21,14 @@ const ProfileManager: React.FC = () => {
     const open = Boolean(anchorEl);
     const handleClose = () => setAnchorEl(null);
     const handleClick = (event: any) => setAnchorEl(event.currentTarget);
-    const user: UserStateType = useSelector<RootState>((state) => state.userState);
+    const user: UserStateType | any = useSelector<RootState>((state) => state?.userState);
     const { theme, setTheme } = useTheme();
 
     return (
         <div className="flex items-center relative">
             <div
                 onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
-                className="cursor-pointer hover:bg-slate-800 p-2 rounded-full transition"
+                className="cursor-pointer hover:bg-slate-100 hover:dark:bg-slate-800 p-2 rounded-full transition"
             >
                 {theme === 'dark' ? <NightlightRoundRounded className='dark:text-white' /> : <LightModeRounded className='dark:text-white' />}
             </div>
@@ -38,7 +38,7 @@ const ProfileManager: React.FC = () => {
                 aria-haspopup="false"
                 aria-expanded={open ? 'true' : undefined}
                 onClick={handleClick}
-                className='cursor-pointer hover:bg-slate-800 p-2 rounded-full transition'
+                className='cursor-pointer hover:bg-slate-100 hover:dark:bg-slate-800 p-2 rounded-full transition'
             >
                 <PersonRounded className='dark:text-white' />
             </div>
@@ -77,18 +77,18 @@ const ProfileManager: React.FC = () => {
                     <Link href={routes.dashboard}>
                         <button
                             onClick={handleClose}
-                            className="flex items-center gap-1 transition hover:bg-slate-50 p-2 w-full !justify-start !text-slate-600 !rounded-lg !font-semibold hover:!text-primary-400"
+                            className="flex text-sm items-center gap-1 transition hover:bg-slate-50 p-2 w-full !justify-start !text-slate-600 !rounded-lg !font-semibold hover:!text-primary-400"
                         >
                             <PersonRounded className="ml-1" />
-                            حساب کاربری
+                            Profile
                         </button>
                     </Link>
                     <button 
                         onClick={handleClose}
-                        className="flex items-center gap-1 transition hover:bg-slate-50 p-2 w-full !justify-start !text-slate-600 !rounded-lg !font-semibold hover:!text-red-400"
+                        className="flex text-sm items-center gap-1 transition hover:bg-slate-50 p-2 w-full !justify-start !text-slate-600 !rounded-lg !font-semibold hover:!text-red-400"
                     >
                         <LogoutRounded className="ml-1" />
-                        خروج
+                        Logout
                     </button>
                 </div>
             </Menu>
