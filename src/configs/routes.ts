@@ -8,7 +8,8 @@ const routes = {
         base: '/licenses',
     },
     companies: {
-        base: '/companies'
+        base: '/companies',
+        detail: (id: string | number) => `/companies/${id ?? "id"}`,
     },
 };
 

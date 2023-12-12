@@ -28,7 +28,7 @@ const Menu: React.FC = () => {
             </div>
             <div className='overflow-y-auto flex-auto'>
                 {profilesTabs?.map((item) => (
-                    <div key={item?.id} className={pathname === item?.url ? 'bg-gray-100 rounded-2xl dark:bg-gray-800 mb-1' : 'rounded-2xl hover:bg-gray-100 hover:dark:bg-gray-800 mb-1'}>
+                    <div key={item?.id} className={pathname.includes(item?.url) ? 'bg-gray-100 rounded-2xl dark:bg-gray-800 mb-1' : 'rounded-2xl hover:bg-gray-100 hover:dark:bg-gray-800 mb-1'}>
                         <Link href={item?.url}>
                             <button className='pr-12 lg:pr-4 rounded-2xl text-sm transition-all hover:text-primary-500 w-full flex items-center gap-2 justify-start text-slate-700 dark:text-slate-100 py-3 px-4 font-medium'>
                                 {item.Icon}
@@ -43,12 +43,6 @@ const Menu: React.FC = () => {
 };
 
 const profilesTabs: MenuTabsPropsType[] = [
-    {
-        id: 'profile-1',
-        url: routes.dashboard,
-        title: 'Dashboard',
-        Icon: <GridViewRounded fontSize='small' />,
-    },
     {
         id: 'profile-2',
         url: routes.users.base,

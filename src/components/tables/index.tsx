@@ -20,13 +20,17 @@ interface TableComponentPropsType {
 const TableComponent: React.FC<TableComponentPropsType> = ({isPaginationExist = true, TABLE_HEAD, total, page, setPage, rowsPerPage, setRowsPerPage, children}) => {
     
     const handleChangePage = (event: any, newPage: number) => {
-        setPage(newPage);
+        if(isPaginationExist) {
+            setPage(newPage);
+        }
     };
 
     const handleChangeRowsPerPage = (event: any) => {
         if(!!Number(event.target.value)) {
-            setPage(0);
-            setRowsPerPage(parseInt(event.target.value, 10));
+            if(isPaginationExist){
+                setPage(0);
+                setRowsPerPage(parseInt(event.target.value, 10));
+            }
         }
     };
 

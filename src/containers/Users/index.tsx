@@ -88,7 +88,7 @@ const Users = () => {
                         isPaginationExist={false}
                     >
                         {data?.map((items: UsersItemsType) => (
-                            <TableBody data={items} key={items?.id} className='[&>.MuiTableCell-root]:dark:!border-slate-700 w-full [&>.MuiTableCell-root]:last:border-none' />
+                            <TableBody data={items} key={items?.id} className='[&>.MuiTableCell-root]:dark:!border-slate-700 h-14 w-full [&>.MuiTableCell-root]:last:border-none' />
                         ))}
                     </TableComponent>
                 }

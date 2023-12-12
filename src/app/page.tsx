@@ -1,11 +1,9 @@
 import React from 'react';
+import routes from '@/configs/routes';
+import { redirect } from 'next/navigation';
 
 const page = () => {
-    return (
-        <div>
-            <h1 className='text-4xl dark:text-white'>Dashboard</h1>
-        </div>
-    );
+    redirect(routes.users.base)
 };
 
 export default page;

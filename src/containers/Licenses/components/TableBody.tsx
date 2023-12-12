@@ -32,7 +32,7 @@ const TableBody: React.FC<LicensesPropsType> = ({className, data, companies}) =>
                     <span className='dark:text-white'>{!!companyData?.name ? companyData?.name : data?.companyId}</span>
                 </TableCell>
                 <TableCell>
-                    <span className={`font-medium text-white ${data?.status === 'available' ? "bg-green-700" : 'bg-amber-600'} rounded-3xl px-4 py-1`}>{(data?.status ?? '')?.toUpperCase()}</span>
+                    <span className={`font-medium py-2 text-xs text-white ${data?.status === 'available' ? "bg-green-700" : 'bg-amber-600'} rounded-3xl px-4 py-1`}>{(data?.status ?? '')?.toUpperCase()}</span>
                 </TableCell>
                 <TableCell align='right'>
                     <div className='flex justify-end'>

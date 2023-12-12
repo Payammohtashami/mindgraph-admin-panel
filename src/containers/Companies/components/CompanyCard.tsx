@@ -5,6 +5,8 @@ import { Avatar } from '@mui/material';
 
 // types
 import type { CompanyItemsType } from '..';
+import Link from 'next/link';
+import routes from '@/configs/routes';
 
 const CompanyCard: React.FC<{data: CompanyItemsType}> = ({data}) => {
     return (
@@ -15,12 +17,12 @@ const CompanyCard: React.FC<{data: CompanyItemsType}> = ({data}) => {
                 </Avatar>
                 <p className='dark:text-white font-bold'>{data?.id} - {data?.name}</p>
             </div>
-            <button 
-                disabled={true}
-                className='dark:text-white border hover:ring-4 bg-primary-400 disabled:bg-transparent disabled:border-primary-400 px-4 py-2 rounded-xl text-sm font-medium'
+            <Link
+                href={routes.companies.detail(data.id)} 
+                className='dark:text-white leading-6 hover:ring-4 bg-primary-400 disabled:bg-transparent px-4 py-2 rounded-xl text-sm font-medium'
             >
                 View
-            </button>
+            </Link>
         </div>
     );
 };

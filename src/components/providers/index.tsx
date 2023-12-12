@@ -21,16 +21,18 @@ const Providers: React.FC<LayoutProps> = ({children}) => {
     setupAxios(store, axios);
     const [queryClient] = useState(new QueryClient());
     return (
-        <Provider store={store}>
-            <QueryClientProvider client={queryClient}>
-                <ThemeRegistery>
-                    <ThemeProvider attribute="class">
-                        <Toaster toastOptions={{position: 'top-center'}} />
-                        {children}
-                    </ThemeProvider>
-                </ThemeRegistery>
-            </QueryClientProvider>
-        </Provider>
+        <>
+            <Provider store={store}>
+                <QueryClientProvider client={queryClient}>
+                    <ThemeRegistery>
+                        <ThemeProvider attribute="class">
+                            <Toaster toastOptions={{position: 'top-center'}} />
+                            {children}
+                        </ThemeProvider>
+                    </ThemeRegistery>
+                </QueryClientProvider>
+            </Provider>
+        </>
     );
 };
 

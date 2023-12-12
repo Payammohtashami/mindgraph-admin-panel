@@ -23,7 +23,7 @@ const TableBody: React.FC<{data: UsersItemsType, className: string}> = ({data, c
                     <span className='dark:text-white'>{data?.companyId}</span>
                 </TableCell>
                 <TableCell>
-                    <span className={`font-medium text-white ${data?.accessGroup === 'admin' ? "bg-green-700" : 'bg-amber-600'} rounded-3xl px-4 py-1`}>{(data?.accessGroup).toUpperCase()}</span>
+                    <span className={`font-medium py-2 text-xs text-white ${data?.accessGroup === 'admin' ? "bg-green-700" : 'bg-amber-600'} rounded-3xl px-4 py-1`}>{(data?.accessGroup).toUpperCase()}</span>
                 </TableCell>
             </MuiTableBody>
             
