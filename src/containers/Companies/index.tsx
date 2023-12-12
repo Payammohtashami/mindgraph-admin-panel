@@ -1,14 +1,16 @@
 "use client"
-import React from 'react';
+import React, { useEffect } from 'react';
 
 // hooks
-import { useGetCompaniesList } from '@/http/query';
+import { getcompaniesData } from '@/features/companies/asyncActions';
+import { useDispatch, useSelector } from 'react-redux';
 
 // components
 import CompanyCard from './components/CompanyCard';
-import { AddRounded } from '@mui/icons-material';
 import { CircularProgress } from '@mui/material';
 
+// types
+import { RootState } from '@/libs/store';
 
 export interface CompanyItemsType {
     id: number,
@@ -17,19 +19,25 @@ export interface CompanyItemsType {
 
 const Companies: React.FC = () => {
     // hooks
-    const { data, isLoading } = useGetCompaniesList();
+    const dispatch = useDispatch();
+    const companiesState: any = useSelector<RootState>((state) => state.companiesState);
+
+    // effects
+    useEffect(() => {
+        dispatch(getcompaniesData());
+    }, []);
     return (
         <>
             <div className="flex justify-between mb-6 items-center">
                 <h1 className='text-3xl dark:text-white font-bold'>Companies List</h1>
             </div>
             <div className="grid gap-4 grid-cols-12">
-                {isLoading ? 
+                {companiesState?.isFetching ? 
                     <div className="flex items-center justify-center py-12">
                         <CircularProgress />
                     </div>
                     :
-                    data?.map((company: CompanyItemsType) => (
+                    companiesState?.data?.map((company: CompanyItemsType) => (
                         <CompanyCard key={company.id} data={company} />
                     ))
                 }

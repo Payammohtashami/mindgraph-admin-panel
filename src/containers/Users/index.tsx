@@ -49,11 +49,6 @@ const tableHead: TableHeadPropsType[] = [
         label: 'Access Group',
         align: 'left',
     },
-    {
-        id: 6,
-        label: '',
-        align: 'right',
-    },
 ];
 
 const Users = () => {
@@ -69,6 +64,7 @@ const Users = () => {
             <div className="flex justify-between mb-6 items-center">
                 <h1 className='text-3xl dark:text-white font-bold'>Users List</h1>
                 <button
+                    disabled
                     onClick={() => setOpenAddUserModal(true)}
                     className='text-white bg-primary-400 px-4 py-2 rounded-xl flex justify-center items-center transition-all text-sm font-medium hover:ring-8 opacity-100 cursor-pointer'
                 >

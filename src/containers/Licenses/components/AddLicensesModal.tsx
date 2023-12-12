@@ -1,25 +1,32 @@
 import Modal from '@/components/modal';
 import TextField from '@/components/textField';
+import Selector from '@/components/textField/selector';
+import { addLicenses } from '@/features/licenses/licensesSlice';
 import { addNewLicensesSchema } from '@/http/validation/licenses';
 import { ModalPropsType } from '@/types/public';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { AddRounded } from '@mui/icons-material';
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import toast from 'react-hot-toast';
+import { useDispatch } from 'react-redux';
 
 const AddLicensesModal: React.FC<ModalPropsType> = ({openModal, setOpenModal}) => {
+    const dispatch = useDispatch();
     const {
         handleSubmit,
         control,
         formState: { errors },
     } = useForm({
         mode: 'onSubmit',
-        defaultValues: { companyId: 0, name: '', status: '' },
+        defaultValues: { companyId: 1, name: '', status: '' },
         resolver: yupResolver(addNewLicensesSchema),
     });
 
     const onSubmit = (data: any) => {
-
+        dispatch(addLicenses(data));
+        setOpenModal(false);
+        toast.success('Add licenses is successfuly!')
     };
     
     return (
@@ -40,17 +47,29 @@ const AddLicensesModal: React.FC<ModalPropsType> = ({openModal, setOpenModal}) =
                     label='Name'
                     name='name'
                     errors={errors}
-                    placeholder='Enter user name'
+                    placeholder='Enter license name'
                     isRequired={true}
                 />
 
-                {/* Email Field */}
-                <TextField
+                {/* status selector Field */}
+                <Selector
+                    options={['used', 'available']}
                     control={control}
                     label='Status'
                     name='status'
                     errors={errors}
-                    placeholder='Status user email'
+                    placeholder='Select license status'
+                    isRequired={true}
+                />
+
+                {/* companyId selector Field */}
+                <Selector
+                    options={[1, 2, 3, 4]}
+                    control={control}
+                    label='Company'
+                    name='companyId'
+                    errors={errors}
+                    placeholder='Select license company'
                     isRequired={true}
                 />
                 

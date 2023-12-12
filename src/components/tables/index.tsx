@@ -24,8 +24,10 @@ const TableComponent: React.FC<TableComponentPropsType> = ({isPaginationExist = 
     };
 
     const handleChangeRowsPerPage = (event: any) => {
-        setPage(0);
-        setRowsPerPage(parseInt(event.target.value, 10));
+        if(!!Number(event.target.value)) {
+            setPage(0);
+            setRowsPerPage(parseInt(event.target.value, 10));
+        }
     };
 
     return (
@@ -46,6 +48,7 @@ const TableComponent: React.FC<TableComponentPropsType> = ({isPaginationExist = 
                     rowsPerPage={rowsPerPage}
                     page={page}
                     onPageChange={handleChangePage}
+                    className='dark:!text-white [&>.MuiToolbar-root>.MuiInputBase-root>svg]:dark:!text-white'
                     onRowsPerPageChange={handleChangeRowsPerPage}
                 />
                 :

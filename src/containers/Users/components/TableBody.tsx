@@ -1,16 +1,12 @@
-import React, { useState } from 'react';
-// components
-import { DeleteRounded, EditRounded } from '@mui/icons-material';
-import { TableCell, TableBody as MuiTableBody } from '@mui/material';
+import React from 'react';
 
-// modals
-import DeleteModal from './DeleteModal';
+// components
+import { TableCell, TableBody as MuiTableBody } from '@mui/material';
 
 // types
 import type { UsersItemsType } from '..';
 
 const TableBody: React.FC<{data: UsersItemsType, className: string}> = ({data, className}) => {
-    const [openDeleteModal, setOpenDeleteModal] = useState<boolean>(false);
     return (
         <>
             <MuiTableBody className={className}>
@@ -29,20 +25,8 @@ const TableBody: React.FC<{data: UsersItemsType, className: string}> = ({data, c
                 <TableCell>
                     <span className={`font-medium text-white ${data?.accessGroup === 'admin' ? "bg-green-700" : 'bg-amber-600'} rounded-3xl px-4 py-1`}>{(data?.accessGroup).toUpperCase()}</span>
                 </TableCell>
-                <TableCell align='right'>
-                    <div className='flex justify-end'>
-                        {/* <button className='dark:text-white p-2 transition-all rounded-full hover:dark:bg-slate-700/60'>
-                            <EditRounded fontSize='small' />
-                        </button> */}
-                        <button onClick={() => setOpenDeleteModal(true)} className='text-red-500 transition-all p-2 rounded-full hover:bg-red-400/10'>
-                            <DeleteRounded fontSize='small' />
-                        </button>
-                    </div>
-                </TableCell>
             </MuiTableBody>
-            {openDeleteModal && 
-                <DeleteModal openModal={openDeleteModal} setOpenModal={setOpenDeleteModal} />
-            }
+            
         </>
     );
 };
